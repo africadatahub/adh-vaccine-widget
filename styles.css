@@ -21,6 +21,7 @@ a {
 .title-block {
   position: absolute;
   /* width: 94%; */
+  width: 100%;
 }
 .title {
   font-weight: 900;
@@ -28,8 +29,7 @@ a {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  margin-left: auto;
-  margin-right: auto;
+
   background: #000;
   color: #fff;
   padding: 5px 0px;

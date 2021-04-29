@@ -65,7 +65,7 @@ getData().then(() => {
   let x = d3
     .scaleTime()
     .domain([startDate, endDate])
-    .range([30, width - 30])
+    .range([30, width - 10])
 
   let y = d3
     .scaleLinear()
@@ -96,7 +96,7 @@ getData().then(() => {
 
   svg
     .append('g')
-    .attr('transform', `translate(35,2)`)
+    .attr('transform', `translate(35,-1)`)
     .attr('class', 'y-axis')
     .call(y_axis().ticks(5))
 
