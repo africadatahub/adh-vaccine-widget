@@ -1,0 +1,22 @@
+{
+  "name": "vaccine-widget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./ "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^6.5.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "browserslist":
+  [
+  "last 1 Chrome version"
+  ]
+}
