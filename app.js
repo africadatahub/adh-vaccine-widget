@@ -29,7 +29,7 @@ const svg = d3
   .attr('height', height)
 
 async function getData() {
-  await fetch('http://api.mediahack.co.za/adh/mhc-vaccinations.php')
+  await fetch('https://api.mediahack.co.za/adh/mhc-vaccinations.php')
     .then((data) => data.json())
     .then((data) => {
       let newData = data.filter((d) => d.iso_code === iso)
