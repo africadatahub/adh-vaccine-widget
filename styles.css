@@ -10,17 +10,16 @@ a {
 .container {
   position: relative;
   width: 274px;
-  height: 280px;
+  height: 300px;
   border: solid 1px lightgray;
   padding: 0px;
 }
 .chart {
   width: 98%;
-  margin-top: 90px;
+  margin-top: 110px;
 }
 .title-block {
   position: absolute;
-  /* width: 94%; */
   width: 100%;
 }
 .title {
@@ -145,4 +144,9 @@ text {
   font-size: 60%;
   font-weight: 300;
   text-anchor: middle;
+}
+.small-note {
+  font-size: 70%;
+  color: gray;
+  margin-top: 5px;
 }

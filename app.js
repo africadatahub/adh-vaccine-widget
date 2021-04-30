@@ -10,6 +10,7 @@ let vaccinations
 let startDate
 let endDate = new Date()
 let days
+let dates
 let numberFormat = new Intl.NumberFormat()
 let formatDate = d3.timeFormat('%e %b')
 let parseTime = d3.timeParse('%Y-%m-%d')
@@ -35,11 +36,10 @@ async function getData() {
       let newData = data.filter((d) => d.iso_code === iso)
       startDate = parseTime(newData[0].date_of_report)
 
-      let Difference_In_Time = endDate.getTime() - startDate.getTime()
+      dates = getDates(startDate, endDate)
 
-      // To calculate the no. of days between two dates
+      let Difference_In_Time = endDate.getTime() - startDate.getTime()
       days = (Difference_In_Time / (1000 * 3600 * 24)).toFixed(0)
-      console.log(days)
 
       newData.forEach((d) => {
         d.total_vaccine_doses_to_date = +d.total_vaccine_doses_to_date
@@ -51,14 +51,8 @@ async function getData() {
         prevVacs = d.total_vaccine_doses_to_date
       })
 
-      console.log(newData)
-
-      // data.forEach((d) => {
-      //   d.date = parseTime(d.date)
-      //   d.vaccinated_daily = +d.vaccinated_daily
-      //   d.vaccinated_total = +d.vaccinated_total
-      // })
       vaccinations = newData
+      console.log(vaccinations)
     })
 }
 getData().then(() => {
@@ -70,6 +64,7 @@ getData().then(() => {
   let y = d3
     .scaleLinear()
     .domain([0, d3.max(vaccinations, (d) => d.daily_vaccines)])
+
     .range([height - 20, 30])
 
   function x_axis() {
@@ -129,22 +124,42 @@ getData().then(() => {
       console.log(b)
     })
 
-  //  Add dates
-  let dateCount = +(days / 5).toFixed(0)
+  // svg
+  //   .datum(vaccinations)
+  //   // .enter()
+  //   .append('path')
+  //   .attr('fill', 'red')
+  //   // .attr('stroke', '#fff')
+  //   .style('stroke', 'red')
+  //   .style('stroke-width', 2)
+  //   .attr(
+  //     'd',
+  //     d3
+  //       .line()
+  //       .x(function (d) {
+  //         return x(d.date_of_report)
+  //       })
+  //       .y(function (d) {
+  //         return y(d.total_vaccine_doses_to_date)
+  //       })
+  //   )
 
-  for (let c = 0; c < vaccinations.length; c = c + dateCount) {
+  //  Add dates
+  let dateCount = +(days / 6).toFixed(0)
+
+  for (let c = 0; c < dates.length; c = c + dateCount) {
     // console.log(vaccinations[c].date_of_report)
     svg
       .append('text')
-      .attr('x', x(vaccinations[c].date_of_report) + 8)
+      .attr('x', x(dates[c]) + 8)
       .attr('y', 148)
-      .text(formatDate(vaccinations[c].date_of_report))
+      .text(formatDate(dates[c]))
       .attr('class', 'x-label')
 
     svg
       .append('line')
-      .attr('x1', x(vaccinations[c].date_of_report) + 7)
-      .attr('x2', x(vaccinations[c].date_of_report) + 7)
+      .attr('x1', x(dates[c]) + 7)
+      .attr('x2', x(dates[c]) + 7)
       .attr('y1', 138)
       .attr('y2', 132)
       .style('stroke', 'gray')
@@ -161,6 +176,22 @@ getData().then(() => {
     )
   })
 })
+
+// Returns an array of dates between the two dates
+var getDates = function (startDate, endDate) {
+  var dates = [],
+    currentDate = startDate,
+    addDays = function (days) {
+      var date = new Date(this.valueOf())
+      date.setDate(date.getDate() + days)
+      return date
+    }
+  while (currentDate <= endDate) {
+    dates.push(currentDate)
+    currentDate = addDays.call(currentDate, 1)
+  }
+  return dates
+}
 
 // logging
 let referrer = document.referrer
