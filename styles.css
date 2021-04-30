@@ -102,7 +102,7 @@ text {
   stroke-width: 1px;
   shape-rendering: crispEdges;
 
-  stroke: lightgray;
+  stroke: rgb(180, 180, 180);
 }
 .credits {
   font-size: 70%;
