@@ -3,7 +3,6 @@ let tracker = 'https://api.mediahack.co.za/adh/tracker/'
 let site = 'premium-times'
 let viz = 'adh-vaccine-widget'
 let iso = 'NGA'
-let country = 'Nigeria'
 
 import * as d3 from 'd3'
 let vaccinations
@@ -83,11 +82,6 @@ getData().then(() => {
   function y_grid() {
     return d3.axisLeft(y).tickFormat('')
   }
-  // svg
-  //   .append('g')
-  //   .attr('transform', `translate(13, ${height - 20})`)
-  //   .attr('class', 'x-axis')
-  //   .call(x_axis().ticks(2))
 
   svg
     .append('g')
@@ -120,35 +114,11 @@ getData().then(() => {
     })
     .attr('height', (d) => height - 20 - y(d.daily_vaccines))
     .style('fill', '#ad0002')
-    .on('mouseover', (a, b) => {
-      console.log(b)
-    })
-
-  // svg
-  //   .datum(vaccinations)
-  //   // .enter()
-  //   .append('path')
-  //   .attr('fill', 'red')
-  //   // .attr('stroke', '#fff')
-  //   .style('stroke', 'red')
-  //   .style('stroke-width', 2)
-  //   .attr(
-  //     'd',
-  //     d3
-  //       .line()
-  //       .x(function (d) {
-  //         return x(d.date_of_report)
-  //       })
-  //       .y(function (d) {
-  //         return y(d.total_vaccine_doses_to_date)
-  //       })
-  //   )
 
   //  Add dates
   let dateCount = +(days / 6).toFixed(0)
 
   for (let c = 0; c < dates.length; c = c + dateCount) {
-    // console.log(vaccinations[c].date_of_report)
     svg
       .append('text')
       .attr('x', x(dates[c]) + 8)
