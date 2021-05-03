@@ -19,7 +19,7 @@ const margin = {
   top: 15,
   bottom: 15,
 }
-const height = 150
+const height = 330
 const width = +d3.select('.chart').style('width').replace('px', '')
 
 const svg = d3
