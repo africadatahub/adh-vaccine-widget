@@ -58,7 +58,7 @@ getData().then(() => {
   let x = d3
     .scaleTime()
     .domain([startDate, endDate])
-    .range([30, width - 10])
+    .range([30, width - 20])
 
   let y = d3
     .scaleLinear()
