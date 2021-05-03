@@ -19,7 +19,7 @@ const margin = {
   top: 15,
   bottom: 15,
 }
-const height = 150
+const height = 140
 const width = +d3.select('.chart').style('width').replace('px', '')
 
 const svg = d3
@@ -64,7 +64,7 @@ getData().then(() => {
     .scaleLinear()
     .domain([0, d3.max(vaccinations, (d) => d.daily_vaccines)])
 
-    .range([height - 20, 30])
+    .range([height - 25, 15])
 
   function x_axis() {
     return d3.axisBottom(x).tickFormat(d3.timeFormat('%e %b'))
@@ -112,7 +112,7 @@ getData().then(() => {
     .attr('width', (d) => {
       return width / days - 2
     })
-    .attr('height', (d) => height - 20 - y(d.daily_vaccines))
+    .attr('height', (d) => height - 25 - y(d.daily_vaccines))
     .style('fill', '#ad0002')
 
   //  Add dates
@@ -122,7 +122,7 @@ getData().then(() => {
     svg
       .append('text')
       .attr('x', x(dates[c]) + 8)
-      .attr('y', 148)
+      .attr('y', 135)
       .text(formatDate(dates[c]))
       .attr('class', 'x-label')
 
@@ -130,8 +130,8 @@ getData().then(() => {
       .append('line')
       .attr('x1', x(dates[c]) + 7)
       .attr('x2', x(dates[c]) + 7)
-      .attr('y1', 138)
-      .attr('y2', 132)
+      .attr('y1', 125)
+      .attr('y2', 118)
       .style('stroke', 'gray')
       .style('stroke-width', 1)
   }
