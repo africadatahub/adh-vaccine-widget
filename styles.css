@@ -14,8 +14,6 @@ a {
   border: solid 1px lightgray;
   padding: 0px;
   background: rgb(243, 243, 243);
-  margin-left: auto;
-  margin-right: auto;
 }
 .chart {
   width: 98%;
