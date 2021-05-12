@@ -35,10 +35,10 @@ a {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  background: #000;
+  background: #bb0101;
   color: #fff;
   padding: 10px 0px;
-  border: solid 1px #000;
+  border: solid 1px #bb0101;
   transform: translate(-1px, -1px);
 }
 line {
@@ -79,7 +79,7 @@ text {
   font-size: 180%;
   padding: 0px;
   background: none;
-  color: #ad0002;
+  color: #000;
   font-weight: 900;
 }
 .total-vaccinations-label {
@@ -115,11 +115,14 @@ text {
 
   color: rgb(207, 207, 207);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 0px 5px;
+  /* grid-template-columns: 1fr 1fr; */
+  /* padding: 0px 5px; */
 }
 .adh-credit {
   text-align: right;
+  width: 100%;
+  text-align: center;
+  /* background: #000; */
 }
 .logo {
   transform: translate(0, -10px);

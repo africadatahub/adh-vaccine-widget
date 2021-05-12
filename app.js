@@ -1,8 +1,8 @@
 /* Set site and viz to log views */
 let tracker = 'https://api.mediahack.co.za/adh/tracker/'
-let site = 'premium-times'
+let site = 'kenya-widget'
 let viz = 'adh-vaccine-widget'
-let iso = 'NGA'
+let iso = 'KEN'
 
 import * as d3 from 'd3'
 let vaccinations
