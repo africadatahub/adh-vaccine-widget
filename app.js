@@ -51,7 +51,6 @@ async function getData() {
       })
 
       vaccinations = newData
-      console.log(vaccinations)
     })
 }
 getData().then(() => {
