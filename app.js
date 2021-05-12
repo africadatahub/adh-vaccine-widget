@@ -112,7 +112,7 @@ getData().then(() => {
       return width / days - 2
     })
     .attr('height', (d) => height - 25 - y(d.daily_vaccines))
-    .style('fill', '#ad0002')
+    .style('fill', '#83D13A')
 
   //  Add dates
   let dateCount = +(days / 6).toFixed(0)
