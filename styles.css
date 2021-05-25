@@ -18,7 +18,7 @@ a {
   margin-left: auto;
 }
 .chart {
-  height: 85px;
+  height: 125px;
   width: 100%;
 }
 .box {
@@ -135,7 +135,7 @@ text {
   width: 70px;
 }
 .adh-credit img {
-  width: 100px;
+  width: 120px;
   transform: translate(0, -3px);
 }
 
