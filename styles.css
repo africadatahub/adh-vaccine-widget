@@ -9,8 +9,8 @@ a {
 }
 .container {
   position: relative;
-  width: 246px;
-  height: 310px;
+  width: 240px;
+  height: 280px;
   border: solid 1px lightgray;
   padding: 0px;
   background: rgb(243, 243, 243);
@@ -18,7 +18,7 @@ a {
   margin-left: auto;
 }
 .chart {
-  height: 110px;
+  height: 85px;
   width: 100%;
 }
 .box {
@@ -135,7 +135,7 @@ text {
   width: 70px;
 }
 .adh-credit img {
-  width: 130px;
+  width: 100px;
   transform: translate(0, -3px);
 }
 
