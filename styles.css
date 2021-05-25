@@ -9,8 +9,8 @@ a {
 }
 .container {
   position: relative;
-  width: 296px;
-  height: 330px;
+  width: 246px;
+  height: 310px;
   border: solid 1px lightgray;
   padding: 0px;
   background: rgb(243, 243, 243);
@@ -18,7 +18,7 @@ a {
   margin-left: auto;
 }
 .chart {
-  height: 144px;
+  height: 110px;
   width: 100%;
 }
 .box {

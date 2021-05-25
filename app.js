@@ -19,7 +19,7 @@ const margin = {
   top: 15,
   bottom: 15,
 }
-const height = 140
+const height = 120
 const width = +d3.select('.chart').style('width').replace('px', '')
 
 const svg = d3
@@ -121,7 +121,7 @@ getData().then(() => {
     svg
       .append('text')
       .attr('x', x(dates[c]) + 8)
-      .attr('y', 135)
+      .attr('y', 110)
       .text(formatDate(dates[c]))
       .attr('class', 'x-label')
 
@@ -129,8 +129,8 @@ getData().then(() => {
       .append('line')
       .attr('x1', x(dates[c]) + 7)
       .attr('x2', x(dates[c]) + 7)
-      .attr('y1', 125)
-      .attr('y2', 118)
+      .attr('y1', 100)
+      .attr('y2', 95)
       .style('stroke', 'gray')
       .style('stroke-width', 1)
   }
