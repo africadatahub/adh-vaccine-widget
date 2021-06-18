@@ -32,7 +32,9 @@ async function getData() {
   await fetch('https://api.mediahack.co.za/adh/mhc-vaccinations.php')
     .then((data) => data.json())
     .then((data) => {
-      let newData = data.filter((d) => d.iso_code === iso)
+      let tempNewData = data.filter((d) => d.iso_code === iso)
+      let newData = tempNewData.filter((d, i) => i > tempNewData.length - 40)
+
       startDate = parseTime(newData[0].date_of_report)
 
       dates = getDates(startDate, endDate)
@@ -49,7 +51,7 @@ async function getData() {
         d.daily_vaccines = d.total_vaccine_doses_to_date - prevVacs
         prevVacs = d.total_vaccine_doses_to_date
       })
-
+      newData.shift()
       vaccinations = newData
     })
 }
@@ -112,7 +114,7 @@ getData().then(() => {
       return width / days - 2
     })
     .attr('height', (d) => height - 25 - y(d.daily_vaccines))
-    .style('fill', '#83D13A')
+    .style('fill', '#028900')
 
   //  Add dates
   let dateCount = +(days / 6).toFixed(0)
@@ -157,7 +159,7 @@ var getDates = function (startDate, endDate) {
     }
   while (currentDate <= endDate) {
     dates.push(currentDate)
-    currentDate = addDays.call(currentDate, 1)
+    currentDate = addDays.call(currentDate, 3)
   }
   return dates
 }
