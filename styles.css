@@ -13,7 +13,7 @@ a {
   height: 330px;
   border: solid 1px lightgray;
   padding: 0px;
-  background: rgb(243, 243, 243);
+  background: #ffffff;
   margin-right: auto;
   margin-left: auto;
 }
@@ -35,10 +35,10 @@ a {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  background: #000;
+  background: #3aba53;
   color: #fff;
   padding: 10px 0px;
-  border: solid 1px #000;
+  border: solid 1px #3aba53;
   transform: translate(-1px, -1px);
 }
 line {
@@ -79,7 +79,7 @@ text {
   font-size: 180%;
   padding: 0px;
   background: none;
-  color: #ad0002;
+  color: #3aba53;
   font-weight: 900;
 }
 .total-vaccinations-label {
@@ -122,7 +122,7 @@ text {
   text-align: right;
 }
 .logo {
-  transform: translate(0, -10px);
+  transform: translate(0, -12px);
 }
 .logo img {
   width: 70px;

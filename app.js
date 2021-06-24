@@ -1,6 +1,6 @@
 /* Set site and viz to log views */
 let tracker = 'https://api.mediahack.co.za/adh/tracker/'
-let site = 'premium-times'
+let site = 'nigeria-health-watch'
 let viz = 'adh-vaccine-widget'
 let iso = 'NGA'
 
@@ -113,7 +113,7 @@ getData().then(() => {
       return width / days - 2
     })
     .attr('height', (d) => height - 25 - y(d.daily_vaccines))
-    .style('fill', '#ad0002')
+    .style('fill', '#000')
 
   //  Add dates
   let dateCount = +(days / 6).toFixed(0)
