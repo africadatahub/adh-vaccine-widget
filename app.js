@@ -1,10 +1,22 @@
-/* Set site and viz to log views */
-let tracker = 'https://api.mediahack.co.za/adh/tracker/'
-let site = 'premium-times'
-let viz = 'adh-vaccine-widget'
 let iso = 'NGA'
 
-import * as d3 from 'd3'
+// import * as d3 from 'd3'
+import { max } from 'd3-array'
+import { select } from 'd3-selection'
+import { scaleTime, scaleLinear } from 'd3-scale'
+import { timeFormat, timeParse } from 'd3-time-format'
+import { axisBottom, axisLeft } from 'd3-axis'
+const d3 = {
+  select,
+  timeFormat,
+  timeParse,
+  scaleTime,
+  scaleLinear,
+  max,
+  axisLeft,
+  axisBottom,
+}
+
 let vaccinations
 let startDate
 let endDate = new Date()
@@ -51,7 +63,6 @@ async function getData() {
       })
 
       vaccinations = newData
-      console.log(vaccinations)
     })
 }
 getData().then(() => {
@@ -164,6 +175,6 @@ var getDates = function (startDate, endDate) {
 }
 
 // logging
-let referrer = document.referrer
-let url = `${tracker}?s=${site}&v=${viz}&r=${referrer}`
-fetch(url)
+// let referrer = document.referrer
+// let url = `${tracker}?s=${site}&v=${viz}&r=${referrer}`
+// fetch(url)
