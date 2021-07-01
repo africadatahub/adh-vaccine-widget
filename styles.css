@@ -9,8 +9,8 @@ a {
 }
 .container {
   position: relative;
-  width: 270px;
-  height: 320px;
+  width: 250px;
+  height: 300px;
   border: solid 1px lightgray;
   padding: 0px;
   background: #ffffff;
@@ -157,7 +157,7 @@ text {
   font-size: 70%;
   color: gray;
   margin-top: 5px;
-  width: 96%;
+  width: 98%;
   margin-left: auto;
   margin-right: auto;
 }
