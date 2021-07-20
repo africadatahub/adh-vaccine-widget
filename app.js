@@ -63,7 +63,6 @@ getData().then(() => {
   let y = d3
     .scaleLinear()
     .domain([0, d3.max(vaccinations, (d) => d.daily_vaccines)])
-
     .range([height - 25, 15])
 
   function x_axis() {
@@ -110,7 +109,7 @@ getData().then(() => {
       return y(d.daily_vaccines)
     })
     .attr('width', (d) => {
-      return width / days - 2
+      return width / days - 1
     })
     .attr('height', (d) => height - 25 - y(d.daily_vaccines))
     .style('fill', '#000')
