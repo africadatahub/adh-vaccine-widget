@@ -45,24 +45,26 @@ async function getData() {
     .then((data) => data.json())
     .then((data) => {
       let newData = data.filter((d) => d.iso_code === iso)
-      startDate = parseTime(newData[0].date_of_report)
+      startDate = parseTime(newData[newData.length - 60].date_of_report)
+      let newNewData = newData.filter((d, i) => i > newData.length - 60)
+      // console.log(newNewData)
 
       dates = getDates(startDate, endDate)
 
       let Difference_In_Time = endDate.getTime() - startDate.getTime()
       days = (Difference_In_Time / (1000 * 3600 * 24)).toFixed(0)
 
-      newData.forEach((d) => {
+      newNewData.forEach((d) => {
         d.total_vaccine_doses_to_date = +d.total_vaccine_doses_to_date
         d.date_of_report = parseTime(d.date_of_report)
       })
       let prevVacs = 0
-      newData.forEach((d) => {
+      newNewData.forEach((d) => {
         d.daily_vaccines = d.total_vaccine_doses_to_date - prevVacs
         prevVacs = d.total_vaccine_doses_to_date
       })
 
-      vaccinations = newData
+      vaccinations = newNewData.filter((d, i) => i !== 0)
     })
 }
 getData().then(() => {
@@ -125,6 +127,9 @@ getData().then(() => {
     })
     .attr('height', (d) => height - 25 - y(d.daily_vaccines))
     .style('fill', '#ad0002')
+    .on('mouseover', (d) => {
+      console.log(d)
+    })
 
   //  Add dates
   let dateCount = +(days / 6).toFixed(0)
