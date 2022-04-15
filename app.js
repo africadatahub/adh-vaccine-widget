@@ -33,7 +33,7 @@ async function getData() {
     .then((data) => data.json())
     .then((data) => {
       let newData = data.filter((d) => d.iso_code === iso)
-      startDate = parseTime(newData[0].date_of_report)
+      startDate = parseTime(newData[newData.length - 60].date_of_report)
 
       dates = getDates(startDate, endDate)
 
@@ -50,8 +50,7 @@ async function getData() {
         prevVacs = d.total_vaccine_doses_to_date
       })
 
-      vaccinations = newData
-      console.log(vaccinations)
+      vaccinations = newData.filter((d, i) => i > newData.length - 60)
     })
 }
 getData().then(() => {
